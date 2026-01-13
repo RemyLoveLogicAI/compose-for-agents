@@ -18,7 +18,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -tags timetzdata -o app .
 
 # ---- Stage 2: Runtime image ----
-FROM alpine:3.19 AS app
+FROM alpine:3.23.2 AS app
 
 # Install ca-certificates for HTTPS requests and timezone data
 RUN apk --no-cache add ca-certificates tzdata
